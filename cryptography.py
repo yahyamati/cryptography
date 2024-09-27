@@ -1,6 +1,5 @@
 from PIL import Image
 import numpy as np
-import os
 
 # def encrypt_image(image_path, key, output_path):
 #     # Ensure the key is an integer
@@ -38,9 +37,7 @@ import os
   
   ###############################################################################  
 
-from PIL import Image
-import numpy as np
-import os
+
 
 def decrypt_image(encrypted_path, key, output_path):
     # Ensure the key is an integer
@@ -65,7 +62,7 @@ def decrypt_image(encrypted_path, key, output_path):
     encrypted_array = np.array(encrypted_image)
     
     # Ensure that the data type is correctly handled
-    decrypted_array = (encrypted_array ^ key).astype(np.uint8)  # XOR operation with the key and convert back to uint8
+    decrypted_array = encrypted_array ^ key  # XOR operation with the key and convert back to uint8
 
     # Convert the NumPy array back to an image
     decrypted_image = Image.fromarray(decrypted_array)
